@@ -1,0 +1,76 @@
+% ----------------- Preamble ----------------- %
+\documentclass[11pt,a4paper]{article}
+\usepackage{lipsum}   % Ipsum lorem generator
+\usepackage{authblk}  % Affiliation
+\usepackage{xcolor}	  % Text color
+\usepackage{hyperref} % Links
+% Package to control table placement
+\usepackage{float}
+% Packages for table formatting
+\usepackage{booktabs}
+\usepackage{adjustbox}
+% Packages to format table notes
+\usepackage[flushleft]{threeparttable}
+% No idea
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+% Front matter
+\title{\textit{Project title} outputs}
+\author{Giuseppe Grasso}
+\affil{LISER / University of Luxembourg \\ giuseppe.grasso@liser.lu}
+
+% ----------------- Body ----------------- %
+\begin{document}
+\maketitle
+\listoftables
+\medskip
+\textcolor{red}{Preliminary results. Do not circulate.}
+
+% ---------------- Tables ----------------- %
+\pagebreak
+
+\begin{table}[H]
+	\caption{Customizing model titles and notes}
+	\begin{adjustbox}{max width = \textwidth}
+		\input{Raw/t5_esttab_titles}
+	\end{adjustbox}
+\end{table}
+
+\begin{table}[H]
+	\caption{Customizing header}
+	\begin{adjustbox}{max width = \textwidth}
+		\input{Raw/t6_esttab_header}
+	\end{adjustbox}
+\end{table}
+
+% ---------------- Appendix ----------------- %
+\pagebreak
+
+\section*{Appendix: fixing table notes}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+ 
+\begin{table}[H]
+	\centering
+	\caption{Adjusting note width with \texttt{threeparttable}}
+	\begin{adjustbox}{max width = \textwidth}
+		\begin{threeparttable}
+			\input{Raw/t9_threeparttable}
+		\end{threeparttable}
+	\end{adjustbox}
+\end{table}
+
+
+\begin{table}[H]
+	\centering
+	\caption{Adjusting narrow note with \texttt{threeparttable}}
+	\begin{adjustbox}{max width = \textwidth}
+		\begin{threeparttable}
+			\input{Raw/t12_narrow3parttable}
+		\end{threeparttable}
+	\end{adjustbox}
+\end{table}
+
+\end{document}
+
+
+
